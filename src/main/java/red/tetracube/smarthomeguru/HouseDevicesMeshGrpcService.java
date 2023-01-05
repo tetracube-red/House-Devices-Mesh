@@ -21,7 +21,7 @@ public class HouseDevicesMeshGrpcService implements TetracubeDevicesMesh {
     @Override
     public Uni<DescribeDevicesMeshResponse> describeDevicesMesh(DescribeDevicesMeshRequest request) {
         return this.describeDeviceMeshServices.describeDevicesMesh(
-                UUID.fromString(request.getHouseId())
+                UUID.fromString(request.getTetracubeId())
                 );
     }
 }

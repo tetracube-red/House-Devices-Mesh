@@ -23,8 +23,7 @@ service TetracubeDevicesMesh {
 }
 
 message DescribeDevicesMeshRequest {
-  string userId = 1;
-  string houseId = 2;
+  string tetracubeId = 2;
 }
 
 message DescribeDevicesMeshResponse {
