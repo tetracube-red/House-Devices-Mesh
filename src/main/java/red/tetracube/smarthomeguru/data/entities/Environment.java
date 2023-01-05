@@ -1,10 +1,10 @@
-package red.tetracube.data.entities;
+package red.tetracube.smarthomeguru.data.entities;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "environments")
+@Table(schema = "smart_home_guru", name = "environments")
 public class Environment {
 
     @Id
@@ -14,9 +14,8 @@ public class Environment {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @JoinColumn(name = "house_id", nullable = false)
-    @ManyToOne(targetEntity = House.class, fetch = FetchType.LAZY)
-    private House house;
+    @Column(name = "tetracube_id", nullable = false)
+    private UUID tetracubeId;
 
     public UUID getId() {
         return id;
@@ -25,4 +24,5 @@ public class Environment {
     public String getName() {
         return name;
     }
+
 }

@@ -1,8 +1,9 @@
-package red.tetracube.data.repositories;
+package red.tetracube.smarthomeguru.data.repositories;
 
 import io.smallrye.mutiny.Uni;
+import red.tetracube.smarthomeguru.data.entities.Switcher;
+
 import org.hibernate.reactive.mutiny.Mutiny;
-import red.tetracube.data.entities.Switcher;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Optional;
@@ -19,7 +20,7 @@ public class SwitcherRepository {
 
     public Uni<Optional<Switcher>> getByDevice(UUID deviceId) {
         var sessionUni = sessionFactory.openSession();
-        return sessionUni.flatMap(session ->
+        return sessionUni.chain(session ->
                 session.createQuery(
                         """
                             from Switcher switcher

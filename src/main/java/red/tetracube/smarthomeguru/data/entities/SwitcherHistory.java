@@ -1,4 +1,4 @@
-package red.tetracube.data.entities;
+package red.tetracube.smarthomeguru.data.entities;
 
 import red.tetracube.LogicState;
 
@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
-@Table(name = "switchers_history")
+@Table(schema = "smart_home_guru", name = "switchers_history")
 public class SwitcherHistory {
 
     @Id

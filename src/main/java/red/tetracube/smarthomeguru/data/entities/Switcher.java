@@ -1,11 +1,11 @@
-package red.tetracube.data.entities;
+package red.tetracube.smarthomeguru.data.entities;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "switchers")
+@Table(schema = "smart_home_guru", name = "switchers")
 public class Switcher {
 
     @Id

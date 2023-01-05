@@ -1,4 +1,4 @@
-package red.tetracube.data.entities;
+package red.tetracube.smarthomeguru.data.entities;
 
 import red.tetracube.LogicState;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "switchers_actions")
+@Table(schema = "smart_home_guru", name = "switchers_actions")
 public class SwitcherAction {
 
     @Id

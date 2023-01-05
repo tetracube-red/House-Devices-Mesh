@@ -4,9 +4,9 @@ import "google/protobuf/timestamp.proto";
 
 option java_multiple_files = true;
 option java_package = "red.tetracube";
-option java_outer_classname = "HouseDevicesMeshGrpcProto";
+option java_outer_classname = "TetracubeDevicesMeshGrpcProto";
 
-package house;
+package devices;
 
 enum DeviceType {
   SWITCHER = 0;
@@ -18,39 +18,37 @@ enum LogicState {
   ON = 1;
 }
 
-service HouseDevicesMesh {
-  rpc DescribeDevicesMesh (DescribeDeviceMeshRequest) returns (DescribeDeviceMeshResponse) {}
+service TetracubeDevicesMesh {
+  rpc DescribeDevicesMesh (DescribeDevicesMeshRequest) returns (DescribeDevicesMeshResponse) {}
 }
 
-message DescribeDeviceMeshRequest {
+message DescribeDevicesMeshRequest {
   string userId = 1;
   string houseId = 2;
+}
+
+message DescribeDevicesMeshResponse {
+  repeated DescribeDeviceMeshResponse devices = 3;
 }
 
 message DescribeDeviceMeshResponse {
   string id = 1;
   string name = 2;
-  repeated Device devices = 3;
-}
-
-message Device {
-  string id = 1;
-  string name = 2;
   string colorCode = 3;
   bool isOnline = 4;
   DeviceType deviceType = 5;
-  HouseEnvironment environment = 6;
-  Switcher switcher = 7;
+  SmartHomeEnvironmentResponse environment = 6;
+  DeviceSwitcherResponse switcher = 7;
 }
 
-message Switcher {
+message DeviceSwitcherResponse {
   string id = 1;
   LogicState currentState = 2;
   google.protobuf.Timestamp lastActionTimestamp = 3;
   repeated LogicState actions = 4;
 }
 
-message HouseEnvironment {
+message SmartHomeEnvironmentResponse {
   string id = 1;
   string name = 2;
 }
